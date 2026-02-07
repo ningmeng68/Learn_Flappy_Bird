@@ -55,6 +55,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_28que"]
+radius = 14.866069
+
 [sub_resource type="Animation" id="Animation_2u0lb"]
 length = 0.001
 tracks/0/type = "value"
@@ -136,6 +139,7 @@ frame = 6
 frame_progress = 0.40659294
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=675086791]
+shape = SubResource("CircleShape2D_28que")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Coin" unique_id=1951825292]
 libraries/ = SubResource("AnimationLibrary_3m43p")

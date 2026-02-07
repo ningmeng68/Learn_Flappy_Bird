@@ -14,6 +14,10 @@ config/name="Flappy_Bird"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://bu237olts4o8q"
+
 [display]
 
 window/size/viewport_width=600

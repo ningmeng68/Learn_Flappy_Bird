@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5qdllhu3yljw"]
+
+[ext_resource type="PackedScene" uid="uid://bwkhbryo48fke" path="res://Scenes/bg.tscn" id="1_gc8rc"]
+[ext_resource type="Texture2D" uid="uid://cj36tcr4bq1ah" path="res://assets/bg.png" id="2_ku5nx"]
+
+[node name="Sky" unique_id=852105037 instance=ExtResource("1_gc8rc")]
+
+[node name="ParallaxLayer" parent="." index="0" unique_id=2017111128]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Sprite2D" parent="ParallaxLayer" index="0" unique_id=1844399676]
+texture = ExtResource("2_ku5nx")
+centered = false

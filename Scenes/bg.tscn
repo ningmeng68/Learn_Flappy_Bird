@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bwkhbryo48fke"]
+
+[ext_resource type="Script" uid="uid://ctpi6eueyfa7h" path="res://Scripts/bg.gd" id="1_sjcup"]
+
+[node name="BG" type="ParallaxBackground" unique_id=852105037]
+script = ExtResource("1_sjcup")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=2017111128]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=1844399676]

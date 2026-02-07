@@ -19,7 +19,10 @@ var is_dead = true # 死亡状态标识，默认死亡（等待游戏正式开�
 @onready var score_sound: AudioStreamPlayer2D = $ScoreSound
 
 func _ready() -> void:
-	pass
+	# 连接三种全局信号
+	GameManager.GameOver.connect(on_game_over)
+	GameManager.UpdateScore.connect(on_get_score)
+	GameManager.GameStart.connect(on_game_start)
 
 func _physics_process(delta: float) -> void:
 	# 当小鸟存活时
@@ -43,3 +46,17 @@ func _physics_process(delta: float) -> void:
 		
 		# 执行移动
 		move_and_slide()
+
+func on_game_start():
+	is_dead = false
+	cpu_particles_2d.emitting = true
+	
+func on_get_score():
+	score_sound.stream = POINT
+	score_sound.play()
+	
+func on_game_over():
+	fly_sound.stream = HIT
+	fly_sound.play()
+	cpu_particles_2d.emitting = false
+	is_dead = true

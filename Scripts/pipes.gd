@@ -26,24 +26,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# 管道的移动
+	# 管道的移动：在每一帧的循环中更新管道的水平位置
 	position.x += SPEED * delta
 	
 func on_pipe_body_entered(body):
 	if body.is_in_group("bird") and not body.is_dead:
-		# TODO：触发游戏结束逻辑
-		pass
+		GameManager.GameOver.emit()
 
 # 将管道从场景树移除，释放内存
 func on_exited():
 	queue_free()
 
+# 金币部分代码
 func on_coin_body_entered(body):
 	if body.is_in_group("bird") and not passed:
 		passed = true # 设置为已通过
-		
+		GameManager.UpdateScore.emit()
 		animation_player.play("coin") # 播放金币消失动画
 		await animation_player.animation_finished # 等待动画播放完
 		
 		coin.queue_free() # 删除金币节点
-		
